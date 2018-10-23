@@ -1,0 +1,54 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/place/index",
+    "pages/user/index",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/photos/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "J&Z | 婚礼邀请函",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#ff4c91",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/invitation.png",
+        "selectedIconPath": "images/invitation.png",
+        "text": "邀请函"
+      },
+      {
+        "pagePath": "pages/photos/index",
+        "iconPath": "images/photo.png",
+        "selectedIconPath": "images/photo.png",
+        "text": "相册"
+      },
+      {
+        "pagePath": "pages/place/index",
+        "iconPath": "images/location.png",
+        "selectedIconPath": "images/location.png",
+        "text": "婚礼地点"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "images/signup.png",
+        "selectedIconPath": "images/signup.png",
+        "text": "宾客注册"
+      }
+    ]
+  } 
+}

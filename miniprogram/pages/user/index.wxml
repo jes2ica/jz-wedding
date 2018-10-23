@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 用户 openid -->
+  <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+    >
+    </button>
+    <view>
+      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view style="height:20px"></view>
+  <view class="sim-form">
+    <form bindsubmit='formSubmit'>
+      <view class="sim-form-group">
+        <label>姓名</label>
+        <input name="name"/>
+      </view>
+      <view class="sim-form-group">
+        <label>手机号</label>
+        <input name="cellphone"/>
+      </view>
+      <view class="sim-form-switch">
+        <label>是否出席</label>
+        <switch type="switch" bindchange="bindAttendChange"/>
+      </view>
+      <view wx:if="{{will_show}}" class="sim-form-switch">
+        <label>是否带家属</label>
+        <switch type="switch" bindchange="bindBringGuestsChange"/>
+      </view>
+      <view wx:if="{{has_guests}}" class="sim-form-group">
+        <label>大人</label>
+        <input/>位
+      </view>
+      <view wx:if="{{has_guests}}" class="sim-form-group">
+        <label>小孩</label>
+        <input/>位
+      </view>
+      <view class="sim-form-textarea">
+        <label>祝福</label>
+        <textarea placeholder='(想对我们说...)'></textarea>
+      </view>
+      <view class="sim-form-switch">
+        <label>是否需要提供住宿 (12.30)</label>
+        <switch type="switch" />
+      </view>
+      <view>
+        <button class="sim-btn sim-btn-success" formType="submit">提交</button>
+      </view>
+    </form>
+  </view>
+</view>
