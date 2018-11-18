@@ -1,12 +1,8 @@
 
 <!-- pages/map/index.wxml -->
 <view class="container">
-  <view class="map">
-    <map id="map" longitude="118.089250" latitude="24.435230" scale="18" markers="{{markers}}" bindmarkertap="markertap" show-location></map>
-  </view>
-  <view>
-  厦门康莱德酒店
-  地址：厦门市思明区演武西路186号
-  ✈️ 厦门高崎国际机场
+  <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG-4524.JPG' class='cover' mode='aspectFill'></image>
+  <view class="nav">
+    <button class="sim-btn sim-btn-success" bindtap="navigate">导航</button>
   </view>
 </view>

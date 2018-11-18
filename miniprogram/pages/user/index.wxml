@@ -1,52 +1,39 @@
 <!--index.wxml-->
 <view class="container">
-  <!-- 用户 openid -->
-  <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    >
-    </button>
-    <view>
-      <view class="userinfo-nickname">{{userInfo.nickName}}</view>
-    </view>
-  </view>
   <view style="height:20px"></view>
   <view class="sim-form">
     <form bindsubmit='formSubmit'>
       <view class="sim-form-group">
         <label>姓名</label>
-        <input name="name"/>
+        <input name="name" value='{{user.name}}'/>
       </view>
       <view class="sim-form-group">
         <label>手机号</label>
-        <input name="cellphone"/>
+        <input name="cellphone" value='{{user.cellphone}}'/>
       </view>
       <view class="sim-form-switch">
         <label>是否出席</label>
-        <switch type="switch" bindchange="bindAttendChange"/>
+        <switch type="switch" bindchange="bindAttendChange" checked='{{willShow}}'/>
       </view>
-      <view wx:if="{{will_show}}" class="sim-form-switch">
+      <view wx:if="{{willShow}}" class="sim-form-switch">
         <label>是否带家属</label>
-        <switch type="switch" bindchange="bindBringGuestsChange"/>
+        <switch type="switch" bindchange="bindBringGuestsChange" checked='{{hasGuests}}'/>
       </view>
-      <view wx:if="{{has_guests}}" class="sim-form-group">
-        <label>大人</label>
-        <input/>位
+      <view wx:if="{{willShow && hasGuests}}" class="sim-form-group">
+        <label>大人一共</label>
+        <input name="adults" value='{{user.adults}}'/>位
       </view>
-      <view wx:if="{{has_guests}}" class="sim-form-group">
-        <label>小孩</label>
-        <input/>位
+      <view wx:if="{{willShow && hasGuests}}" class="sim-form-group">
+        <label>小孩一共</label>
+        <input name="children" value='{{user.children}}'/>位
       </view>
       <view class="sim-form-textarea">
         <label>祝福</label>
-        <textarea placeholder='(想对我们说...)'></textarea>
+        <textarea placeholder='(想对我们说...)' name="blessings" value='{{user.blessings}}'></textarea>
       </view>
       <view class="sim-form-switch">
         <label>是否需要提供住宿 (12.30)</label>
-        <switch type="switch" />
+        <switch type="switch" bindchange="bindRequestRoomChange" checked='{{needsRoom}}'/>
       </view>
       <view>
         <button class="sim-btn sim-btn-success" formType="submit">提交</button>

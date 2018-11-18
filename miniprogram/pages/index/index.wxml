@@ -1,6 +1,6 @@
 <!--pages/invitation/index.wxml-->
 <view class="container">
-    <image src='/images/index.jpg' class='cover' mode='aspectFill'></image>
+    <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/background.png' class='cover' mode='aspectFill'></image>
     <view class='datetime' animation="{{animationData}}">
         <view class='box'>
             <view class="name">
@@ -9,12 +9,10 @@
                 <span class="fr ">庄怡婕</span>
             </view>
             <view class="date">
-                <view>谨定于 2018年12月30日 举办婚礼</view>
-                <view>席设: 厦门康莱德酒店</view>
-                <view>地址：厦门市思明区演武西路186号</view>
+                <view>谨定于 2018年12月30日18时30分 举办婚礼</view>
+                <view>席设: 厦门康莱德酒店 6F 大宴会厅</view>
                 <view>恭请您的光临</view>
             </view>
-            <image class="we" src='/images/we.png'></image>
         </view>
     </view>
 </view>

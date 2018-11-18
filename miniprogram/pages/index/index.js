@@ -12,68 +12,24 @@ Page({
      */
     data: {
         animationData: "",
-        userInfo: {},
-        music_url: '',
-        isPlayingMusic: true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
         //创建动画
         var animation = wx.createAnimation({
-
             duration: 3600,
             timingFunction: "ease",
             delay: 600,
             transformOrigin: "50% 50%",
 
         })
-
-
         animation.scale(0.9).translate(10, 10).step();     //边旋转边放大
-
-
         //导出动画数据传递给组件的animation属性。
         this.setData({
             animationData: animation.export(),
-        })
-
-
-        var that = this
-
-        // wx.getUserInfo({
-        //     success: function (res) {
-        //         that.setData({
-        //             userInfo: res.userInfo
-        //         })
-        //     }
-        // })
-
-        wx.request({
-            url: server,
-            method: 'GET',
-            data: { 'c': 'info', 'appid': appid },
-            header: {
-                'Accept': 'application/json'
-            },
-            success: function (res) {
-                //console.log(res.data)
-
-                wx.playBackgroundAudio({
-                    dataUrl: res.data.music_url,
-                    title: '',
-                    coverImgUrl: ''
-                })
-
-                
-                that.setData({
-                    mainInfo: res.data.mainInfo,
-                    music_url: res.data.music_url
-                });
-            }
         })
     },
 
@@ -117,56 +73,5 @@ Page({
      */
     onReachBottom: function () {
 
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-        var that = this;
-        //console.log(that.data);
-        return {
-            title: that.data.mainInfo.share,
-            imageUrl: that.data.mainInfo.thumb,
-            path: 'pages/index/index',
-            success: function (res) {
-                wx.showToast({
-                    title: '分享成功',
-                })
-            },
-            fail: function (res) {
-                // 转发失败
-                wx.showToast({
-                    title: '分享取消',
-                })
-            }
-        }
-    },
-    callhe: function (event) {
-        wx.makePhoneCall({
-            phoneNumber: this.data.mainInfo.he_tel
-        })
-    },
-    callshe: function (event) {
-        wx.makePhoneCall({
-            phoneNumber: this.data.mainInfo.she_tel
-        })
-    },
-    play: function (event) {
-        if (this.data.isPlayingMusic) {
-            wx.pauseBackgroundAudio();
-            this.setData({
-                isPlayingMusic: false
-            })
-        } else {
-            wx.playBackgroundAudio({
-                dataUrl: this.data.music_url,
-                title: '',
-                coverImgUrl: ''
-            })
-            this.setData({
-                isPlayingMusic: true
-            })
-        }
     },
 })

@@ -3,35 +3,22 @@
 const app = getApp()
 var server = app.globalData.server;
 var appid = app.globalData.appid;
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
     userInfo: {}, 
   },
-  markertap(e) {
-    // console.log(e)
-    wx.request({
-      url: server,
-      method: 'GET',
-      data: { 'c': 'info', 'appid': appid },
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-        var lng = res.data.mainInfo.lng
-        var lat = res.data.mainInfo.lat   
-        console.log(lat)     
-        wx.openLocation({
-          latitude: parseFloat(lat),
-          longitude: parseFloat(lng),
-          scale: 18,
-          name: res.data.mainInfo.hotel,
-          address: res.data.mainInfo.address
-        })
-      }
+  navigate: function(e) {
+    console.log(e)
+    wx.openLocation({
+      latitude: parseFloat('24.435587'),
+      longitude: parseFloat('118.08955'),
+      scale: 14,
+      name: '厦门康莱德酒店',
+      address: '厦门市思明区演武西路186号'
     })
   },
   /**
@@ -45,26 +32,6 @@ Page({
         that.setData({
           userInfo: res.userInfo
         })
-      }
-    })
-
-    wx.request({
-      url: server,
-      method: 'GET',
-      data: { 'c': 'info', 'appid': appid },
-      header: {
-        'Accept': 'application/json'
-      },
-      success: function (res) {
-        // console.log(res.data)
-
-        var lng = res.data.mainInfo.lng
-        var lat = res.data.mainInfo.lat
-        that.setData({  
-          mainInfo: res.data.mainInfo,       
-          lng: lng, // 全局属性，用来取定位坐标
-          lat: lat,
-        });
       }
     })
   },
@@ -109,39 +76,5 @@ Page({
    */
   onReachBottom: function () {
   
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    var that = this;
-    //console.log(that.data);
-    return {
-      title: that.data.mainInfo.share,
-      imageUrl: that.data.mainInfo.thumb,
-      path: 'pages/index/index',
-      success: function (res) {
-        wx.showToast({
-          title: '分享成功',
-        })
-      },
-      fail: function (res) {
-        // 转发失败
-        wx.showToast({
-          title: '分享取消',
-        })
-      }
-    }
-  },
-  callhe: function (event) {
-    wx.makePhoneCall({
-      phoneNumber: this.data.mainInfo.he_tel
-    })
-  },
-  callshe: function (event) {
-    wx.makePhoneCall({
-      phoneNumber: this.data.mainInfo.she_tel
-    })
   }
 })

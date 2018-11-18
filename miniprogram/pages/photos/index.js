@@ -37,25 +37,5 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
-  },
-  onShareAppMessage: function (res) {
-    var that = this;
-    //console.log(that.data);
-    return {
-      title: that.data.mainInfo.share,
-      imageUrl: that.data.mainInfo.thumb,
-      path: 'pages/index/index',
-      success: function (res) {
-        wx.showToast({
-          title: '分享成功',
-        })
-      },
-      fail: function (res) {
-        // 转发失败
-        wx.showToast({
-          title: '分享取消',
-        })
-      }
-    }
   }
 })

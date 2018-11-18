@@ -2,22 +2,19 @@
   <view class="swiper">
     <swiper indicator-dots="false" autoplay="false" interval="5000" duration="1000">
         <swiper-item>
-            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/10.jpg" class="slide-image" mode="aspectFill"/>
-        </swiper-item>
-        <swiper-item>
-            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/11.jpg" class="slide-image" mode="aspectFill"/>
-        </swiper-item>
-        <swiper-item>
-            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/12.jpg" class="slide-image" mode="aspectFill"/>
-        </swiper-item>
-        <swiper-item>
-            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/13.jpg" class="slide-image" mode="aspectFill"/>
+            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG_4366.JPG" class="slide-image" mode="aspectFill"/>
         </swiper-item>
         <swiper-item>
             <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/14.jpg" class="slide-image" mode="aspectFill"/>
         </swiper-item>
         <swiper-item>
-            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/15.jpg" class="slide-image" mode="aspectFill"/>
+            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG_4372.JPG" class="slide-image" mode="aspectFill"/>
+        </swiper-item>
+        <swiper-item>
+            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG_4364.JPG" class="slide-image" mode="aspectFill"/>
+        </swiper-item>
+        <swiper-item>
+            <image src="cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/11.jpg" class="slide-image" mode="aspectFill"/>
         </swiper-item>
     </swiper>
   </view>

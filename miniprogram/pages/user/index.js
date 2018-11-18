@@ -8,20 +8,15 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    will_show: false,
-    has_guests: false,
-    num_adults: 0,
-    num_children: 0,
     record_id: '',
+    // user details
+    willShow: false,
+    hasGuests: false,
+    needsRoom: false,
+    user: {},
   },
 
   onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
 
     // 获取用户信息
     wx.getSetting({
@@ -46,9 +41,20 @@ Page({
       _openid: this.data.openid
     }).get({
       success: res => {
+        var data = res.data[0];
         this.setData({
           queryResult: JSON.stringify(res.data, null, 2),
-          record_id: res.data[0]._id
+          record_id: data._id,
+          user: {
+            name: data.name,
+            cellphone: data.cellphone,
+            adults: data.adults,
+            children: data.children,
+            blessings: data.blessings,
+          },
+          willShow: data.willShow,
+          hasGuests: data.hasGuests,
+          needsRoom: data.needsRoom,
         })
         console.log('[数据库] [查询记录] 成功: ', res.data[0]._id)
       },
@@ -62,15 +68,29 @@ Page({
     })
   },
   formSubmit: function (e) {
+    console.log(e.detail);
+    var record_id = this.data.record_id;
     var name = e.detail.value.name;
     var cellphone = e.detail.value.cellphone;
+    var willShow = this.data.willShow;
+    var hasGuests = this.data.hasGuests;
+    var needsRoom = this.data.needsRoom;
+    var adults = e.detail.value.adults;
+    var children = e.detail.value.children;
+    var blessings = e.detail.value.blessings;
 
     const db = wx.cloud.database()
-    if (this.data.record_id) {
-      db.collection('users').doc(this.data.record_id).set({
+    if (record_id) {
+      db.collection('users').doc(record_id).set({
         data: {
           name: name,
           cellphone: cellphone,
+          willShow: willShow,
+          hasGuests: hasGuests,
+          needsRoom: needsRoom,
+          adults: adults,
+          children: children,
+          blessings: blessings,
         },
         success: res => {
           wx.showToast({
@@ -91,6 +111,12 @@ Page({
         data: {
           name: name,
           cellphone: cellphone,
+          willShow: willShow,
+          hasGuests: hasGuests,
+          needsRoom: needsRoom,
+          adults: adults,
+          children: children,
+          blessings: blessings,
         },
         success: res => {
           wx.showToast({
@@ -108,17 +134,22 @@ Page({
       })
     }
   },
-
-  // Corresponds to the changes of "will show" switch.
+  
   bindAttendChange: function (e) {
     this.setData({
-      will_show: e.detail.value
+      willShow: e.detail.value
     })
   },
 
   bindBringGuestsChange: function(e) {
     this.setData({
-      has_guests: e.detail.value
+      hasGuests: e.detail.value
+    })
+  },
+
+  bindRequestRoomChange: function (e) {
+    this.setData({
+      needsRoom: e.detail.value
     })
   },
 

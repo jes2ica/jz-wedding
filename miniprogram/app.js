@@ -10,6 +10,9 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      appid: 'wxd901c065812315b3',
+      // server: 'https://wx.qiaker.cn/api',
+    }
   }
 })
