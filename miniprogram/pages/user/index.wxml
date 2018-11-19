@@ -15,6 +15,8 @@
         <label>是否出席</label>
         <switch type="switch" bindchange="bindAttendChange" checked='{{willShow}}'/>
       </view>
+      <view wx:if="{{willShow}}" class="sim-text-center" style='color:grey'>(着装颜色建议：白色、米色、金色)
+      </view>
       <view wx:if="{{willShow}}" class="sim-form-switch">
         <label>是否带家属</label>
         <switch type="switch" bindchange="bindBringGuestsChange" checked='{{hasGuests}}'/>
@@ -27,16 +29,16 @@
         <label>小孩一共</label>
         <input name="children" value='{{user.children}}'/>位
       </view>
+      <view wx:if="{{willShow}}" class="sim-form-switch">
+        <label>是否需要提供住宿 (12.30)</label>
+        <switch type="switch" bindchange="bindRequestRoomChange" checked='{{needsRoom}}'/>
+      </view>
       <view class="sim-form-textarea">
         <label>祝福</label>
         <textarea placeholder='(想对我们说...)' name="blessings" value='{{user.blessings}}'></textarea>
       </view>
-      <view class="sim-form-switch">
-        <label>是否需要提供住宿 (12.30)</label>
-        <switch type="switch" bindchange="bindRequestRoomChange" checked='{{needsRoom}}'/>
-      </view>
       <view>
-        <button class="sim-btn sim-btn-success" formType="submit">提交</button>
+        <button class="sim-btn sim-btn-success" formType="submit">提交/修改</button>
       </view>
     </form>
   </view>

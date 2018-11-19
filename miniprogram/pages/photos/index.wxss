@@ -1,5 +1,4 @@
 /**index.wxss**/
-
 .container {
   background: #f6f6f6;
   width: 750rpx;
