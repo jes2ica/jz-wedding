@@ -1,7 +1,15 @@
 
 <!-- pages/map/index.wxml -->
 <view class="container">
-  <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG-4524.JPG' class='cover' mode='aspectFill'></image>
+  <!-- <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG-4524.JPG' class='cover' mode='aspectFill'></image> -->
+  <swiper indicator-dots="false" autoplay="false" interval="5000" duration="1000" class='cover'>
+      <swiper-item>
+          <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/IMG-4524.JPG' class='cover' mode='aspectFill'></image>
+      </swiper-item>
+      <swiper-item>
+          <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/timeline.png' class='cover' mode='aspectFill'></image>
+      </swiper-item>
+    </swiper>
   <view class="nav">
     <button class="sim-btn sim-btn-success" bindtap="navigate">导航</button>
   </view>
