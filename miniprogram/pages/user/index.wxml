@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!-- pages/user/index.wxml -->
 <view class="container">
   <view style="height:20px"></view>
   <view class="sim-form">

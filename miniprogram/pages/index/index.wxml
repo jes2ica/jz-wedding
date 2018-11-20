@@ -1,4 +1,4 @@
-<!--pages/invitation/index.wxml-->
+<!-- pages/index/index.wxml -->
 <view class="container">
     <image src='cloud://jes2ica-6295fb.6a65-jes2ica-6295fb/background.png' class='cover' mode='aspectFill'></image>
     <view class='datetime' animation="{{animationData}}">
